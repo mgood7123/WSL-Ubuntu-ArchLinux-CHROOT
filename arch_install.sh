@@ -40,7 +40,7 @@ if [[ -e ~/ARCHLINUX/TAR/archlinux-bootstrap-x86_64.tar.gz ]]
     else
         mkdir -p ~/ARCHLINUX/TAR > /dev/null 2>&1
         cd ~/ARCHLINUX/TAR
-        curl -L -O https://mirror.aarnet.edu.au/pub/archlinux/iso/2022.07.01/archlinux-bootstrap-x86_64.tar.gz
+        curl -L -O https://geo.mirror.pkgbuild.com/iso/latest/archlinux-bootstrap-x86_64.tar.gz
 fi
 
 if [[ -e ~/ARCHLINUX/ROOTFS ]]
@@ -163,6 +163,8 @@ echo "executing pacman-mirrorlist"
 sudo ~/ARCHLINUX/CHROOT/ARCH_CHROOT/bin/arch-chroot ~/ARCHLINUX/CHROOT/ARCH_CHROOT /bin/sh -c "/usr/local/bin/pacman-mirrorlist"
 
 sudo ~/ARCHLINUX/CHROOT/ARCH_CHROOT/bin/arch-chroot ~/ARCHLINUX/CHROOT/ARCH_CHROOT bash -c "pacman -Syu --noconfirm"
+
+sudo ~/ARCHLINUX/CHROOT/ARCH_CHROOT/bin/arch-chroot ~/ARCHLINUX/CHROOT/ARCH_CHROOT bash -c "pacman -S --noconfirm vim vi"
 
 sudo ~/ARCHLINUX/CHROOT/ARCH_CHROOT/bin/arch-chroot ~/ARCHLINUX/CHROOT/ARCH_CHROOT bash -c "echo \"VISUAL=\\\"nano\\\"\" >> /home/$user/.bashrc"
 sudo ~/ARCHLINUX/CHROOT/ARCH_CHROOT/bin/arch-chroot ~/ARCHLINUX/CHROOT/ARCH_CHROOT bash -c "echo export VISUAL >> /home/$user/.bashrc"
